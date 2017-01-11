@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 #!/usr/bin/env python
 
-#TODO: Display answers that were not given
-#TODO: handle exit signal
-#TODO: ask word with low scores
 
 import os
 import random
