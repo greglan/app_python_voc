@@ -5,7 +5,8 @@ Todo
 ----
 - Choose the traduction file location
 - Fix the characters display on windows
-- Project managment (different files)
+- Project management (different files)
 - Display answers that were not given
 - Handle exit signal
 - Ask word with low scores
+- Add logging
