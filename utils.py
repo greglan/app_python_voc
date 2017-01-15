@@ -8,9 +8,9 @@ score_min=0
 
 class Translation:
     def __init__(this, line):
-        this.swapped = False # Direction of translation. Default: order in the file.
+        this.swapped = False                                                    # Direction of translation. Default: order in the file.
         line = line.split('-')
-        this.score = int(line[0]) # Contains the score of the current translation
+        this.score = int(line[0])                                               # Contains the score of the current translation
         
         line = line[1].split('=')
         this.question = line[0] # String
@@ -64,16 +64,60 @@ class Translation:
         if this.score >= score_min+5:
             this.score -= 5
 
+
+class TranslationManager:
+    def __init__(this):
+        this.totalTranslations = 0
+        this.cTranslation = None                                                # Current translation
+        this.translations = [ [] for k in range(score_max+1) ]
+    
+    def gettotalTranslations(this):
+        return this.totalTranslations
+    
+    def add(this, line):
+        t = Translation(line)
+        this.translations[t.score].append(t)
+    
+    def swapLanguages(this):
+        for i in range(score_max+1):
+            for t in this.translations[i]:
+                t.swap()
+                
+    def newQuestion(this):
+        score = random.randint(min_score, max_score)
+        k = len(this.translations[score])
+        this.cTranslation = this.translations[score][random.randint(0, k)]
+    
+    def getQuestion(this):
+        this.cTranslation.getQuestion()
+    
+    def check(this, answer):
+        return this.cTranslation.check(answer)
+    
+    def getAnswer(this):
+        return this.cTranslation.getAnswer()
+    
+    def saveScores(this):
+        f = open(this.filepath, 'w')
+        lines = []
+        
+        for i in range(score_max+1):
+            for t in this.translations[i]:
+                lines.append(t.toString())
+        
+        for line in lines:
+            f.write(line)
+    
+        f.close()
+                
 class App:
     def __init__(this, filepath):
-        this.wordList = []
+        this.TM = TranslationManager()
         this.filepath = filepath
                 
         f = open(filepath)
         for line in f:
-            this.wordList.append(Translation(line.strip()))
-        
-        this.len_wordList = len(this.wordList)    
+            this.TM.add(line.strip())
         this.index = 0
         
         f.close()
@@ -86,18 +130,14 @@ class App:
             while(not this.processAnswer()):
                 print("Wrong")
     
+    
     def getAnswer(this):
-        this.answer = input()
-    
-    def swapLanguages(this):
-        for i in range(len(this.wordList)):
-            this.wordList[i].swap()
-    
+        this.answer = input()    
     
     def newQuestion(this):
         print()
-        this.index = random.randint(0, this.len_wordList-1)
-        print(this.wordList[this.index].getQuestion())
+        this.TM.newQuestion()
+        print(this.TM.getQuestion())
     
     
     def processAnswer(this):
@@ -113,22 +153,12 @@ class App:
             this.saveScores()
             return True
         else:
-            return this.wordList[this.index].check(this.answer)
+            return this.TM.check(this.answer)
     
     
     def printAnswer(this):
-        print(this.wordList[this.index].getAnswer())
+        print(this.TM.getAnswer())
     
     
     def saveScores(this):
-        f = open(this.filepath, 'w')
-        lines = []
-        
-        for i in range(this.len_wordList):
-            lines.append(this.wordList[i].toString())
-        lines.sort()
-        
-        for line in lines:
-            f.write(line)
-    
-        f.close()
+        this.TM.saveScores()
