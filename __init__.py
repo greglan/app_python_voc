@@ -11,5 +11,5 @@ os = platform.system()
 if os=="Windows":
     pass
         
-app = App('e.txt')
+app = App('s.txt')
 app.run()
