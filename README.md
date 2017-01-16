@@ -9,4 +9,5 @@ Todo
 - Display answers that were not given
 - Handle exit signal
 - Ask word with low scores
+- Update scores in the manager
 - Add logging

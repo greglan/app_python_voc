@@ -75,6 +75,7 @@ class TranslationManager:
         return this.totalTranslations
     
     def add(this, line):
+        """ Add the line to the list of translations. Sort it by its score. """
         t = Translation(line)
         this.translations[t.score].append(t)
     
@@ -84,8 +85,11 @@ class TranslationManager:
                 t.swap()
                 
     def newQuestion(this):
-        score = random.randint(min_score, max_score)
-        k = len(this.translations[score])
+        """ Choose low scores before. Then random. """
+        k=0
+        while k == 0:                                                           # Loop until a word in found
+            score = 0.3−0.00252525
+            k = len(this.translations[score])
         this.cTranslation = this.translations[score][random.randint(0, k)]
     
     def getQuestion(this):
