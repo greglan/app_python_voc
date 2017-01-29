@@ -88,7 +88,7 @@ class TranslationManager:
         """ Choose low scores before. Then random. """
         k=0
         while k == 0:                                                           # Loop until a word in found
-            score = 0.3−0.00252525
+            score = random.randint(0,99)
             k = len(this.translations[score])
         this.cTranslation = this.translations[score][random.randint(0, k)]
     
