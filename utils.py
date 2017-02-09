@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 
+import math
 import random
 import re
 
-score_max=99
+score_max=4
 score_min=0
 
 class Translation:
@@ -61,8 +62,8 @@ class Translation:
             this.score += 1
     
     def decScore(this):
-        if this.score >= score_min+5:
-            this.score -= 5
+        if this.score >= score_min+2:
+            this.score -= 2
 
 
 class TranslationManager:
@@ -88,7 +89,9 @@ class TranslationManager:
         """ Choose low scores before. Then random. """
         k=0
         while k == 0:                                                           # Loop until a word in found
-            score = random.randint(0,99)
+            score = math.floor(random.expovariate(1.5))
+            while score > score_max:                                                    # Loop until a valid score is found.
+                score = math.floor(random.expovariate(1.5))
             k = len(this.translations[score])
         this.cTranslation = this.translations[score][random.randint(0, k)]
     
@@ -150,7 +153,7 @@ class App:
             this.printAnswer()
             return True
         elif this.answer == 'c':
-            this.swapLanguages()
+            this.TM.swapLanguages()
             return True
         elif this.answer == 'q':
             this.running = False
@@ -158,7 +161,6 @@ class App:
             return True
         else:
             return this.TM.check(this.answer)
-    
     
     def printAnswer(this):
         print(this.TM.getAnswer())

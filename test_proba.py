@@ -4,17 +4,31 @@
 from math import *
 import matplotlib.pyplot as plt
 
-def p(x):
-    return 0.3−0.00252525*x
+mu=0
+sigma=2
+l = 1.5
+N=10000
 
-x = [k for k in range(100)]
-p_x = [p(k) for k in range(100)]
 
-plt.plot(x, p_x)
+def f():
+    n = floor( rd.normalvariate(mu, sigma))
+    return n
 
-plt.xlim([0,100])
-plt.ylim([0,1])
+def expo():
+    return floor(rd.expovariate(l))
+
+data = [0 for k in range(10)]
+
+for k in range(N):
+    x=expo()
+    if x <10:
+        data[x] += 1
+
+for i in range(10):
+    data[i] = data[i]/N
+    
+plt.plot(range(10), data)
+plt.xlim([0,6])
 
 plt.show()
 
-print("Loi: ", sum(p(k) for k in range(100))==1)
