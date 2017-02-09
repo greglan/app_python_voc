@@ -84,16 +84,16 @@ class TranslationManager:
         for i in range(score_max+1):
             for t in this.translations[i]:
                 t.swap()
-                
+    
     def newQuestion(this):
         """ Choose low scores before. Then random. """
         k=0
         while k == 0:                                                           # Loop until a word in found
             score = math.floor(random.expovariate(1.5))
-            while score > score_max:                                                    # Loop until a valid score is found.
+            while score > score_max:                                            # Loop until a valid score is found.
                 score = math.floor(random.expovariate(1.5))
             k = len(this.translations[score])
-        this.cTranslation = this.translations[score][random.randint(0, k)]
+        this.cTranslation = this.translations[score][random.randint(0, k)]      #FIXME: list index out of range
     
     def getQuestion(this):
         return this.cTranslation.getQuestion()
@@ -111,6 +111,8 @@ class TranslationManager:
         for i in range(score_max+1):
             for t in this.translations[i]:
                 lines.append(t.toString())
+        
+        lines.sort()
         
         for line in lines:
             f.write(line)

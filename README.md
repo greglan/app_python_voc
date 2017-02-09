@@ -11,4 +11,5 @@ Todo
 - Update scores in the manager
 - Add logging
 - Add tests
-- Sort file by scores
+- Add docs
+- Fix index error
