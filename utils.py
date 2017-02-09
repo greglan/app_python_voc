@@ -96,7 +96,7 @@ class TranslationManager:
         this.cTranslation = this.translations[score][random.randint(0, k)]
     
     def getQuestion(this):
-        this.cTranslation.getQuestion()
+        return this.cTranslation.getQuestion()
     
     def check(this, answer):
         return this.cTranslation.check(answer)
@@ -104,8 +104,8 @@ class TranslationManager:
     def getAnswer(this):
         return this.cTranslation.getAnswer()
     
-    def saveScores(this):
-        f = open(this.filepath, 'w')
+    def saveScores(this, filepath):
+        f = open(filepath, 'w')
         lines = []
         
         for i in range(score_max+1):
@@ -121,7 +121,7 @@ class App:
     def __init__(this, filepath):
         this.TM = TranslationManager()
         this.filepath = filepath
-                
+        
         f = open(filepath)
         for line in f:
             this.TM.add(line.strip())
@@ -167,4 +167,4 @@ class App:
     
     
     def saveScores(this):
-        this.TM.saveScores()
+        this.TM.saveScores(this.filepath)
