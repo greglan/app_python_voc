@@ -8,6 +8,7 @@ Todo
 - Project management (different files)
 - Display answers that were not given
 - Handle exit signal
-- Ask word with low scores
 - Update scores in the manager
 - Add logging
+- Add tests
+- Sort file by scores
