@@ -4,15 +4,8 @@
 from math import *
 import matplotlib.pyplot as plt
 
-mu=0
-sigma=2
 l = 1.5
 N=10000
-
-
-def f():
-    n = floor( rd.normalvariate(mu, sigma))
-    return n
 
 def expo():
     return floor(rd.expovariate(l))
