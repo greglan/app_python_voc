@@ -4,5 +4,5 @@
 
 from utils import *
         
-app = App('s.txt')
+app = App('e.txt')
 app.run()

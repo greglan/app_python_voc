@@ -16,3 +16,5 @@ Todo
 - Add tests
 - Add docs
 - Add two scores: one for each direction
+- Change the sep for score.
+- Format other answers

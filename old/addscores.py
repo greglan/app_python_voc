@@ -1,10 +1,9 @@
-f = open('s.txt','r+')
+f = open('../e.txt','r+')
 l=[]
 for line in f:
-    l.append(line[2:])
+    l.append("0-"+line)
 f.seek(0)
 f.truncate()
 for line in l:
     f.write(line)
-    print(line)
 f.close()
