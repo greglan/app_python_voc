@@ -10,7 +10,6 @@ Todo
 ----
 - Choose the traduction file location
 - Project management (different files)
-- Display answers that were not given
 - Handle exit signal
 - Update scores in the manager
 - Add logging

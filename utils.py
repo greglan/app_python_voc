@@ -51,6 +51,10 @@ class Translation:
             TODO: display the missing answers
         """
         if answer in this.answers:
+            if len(this.answers)!=1:
+                print("Other answers: ")
+                this.answers.remove(answer)
+                print(this.answers)
             this.incScore()
             return True
         else:
