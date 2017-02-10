@@ -93,7 +93,7 @@ class TranslationManager:
             while score > score_max:                                            # Loop until a valid score is found.
                 score = math.floor(random.expovariate(1.5))
             k = len(this.translations[score])
-        this.cTranslation = this.translations[score][random.randint(0, k)]      #FIXME: list index out of range
+        this.cTranslation = this.translations[score][random.randint(0, k-1)]    
     
     def getQuestion(this):
         return this.cTranslation.getQuestion()
