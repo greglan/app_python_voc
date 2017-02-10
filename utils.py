@@ -14,8 +14,8 @@ class Translation:
         this.score = int(line[0])                                               # Contains the score of the current translation
         
         line = line[1].split('=')
-        this.question = line[0] # String
-        this.answer = line[1]   # String
+        this.question = line[0]                                                 # String
+        this.answer = line[1]                                                   # String
         this.buildAnswerList(this.answer)
     
     def buildAnswerList(this, s):
