@@ -9,6 +9,7 @@ import platform
 os = platform.system()
 
 if os=="Windows":
+    #TODO: Deal with encoding issues
     pass
         
 app = App('s.txt')
