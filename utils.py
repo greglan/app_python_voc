@@ -105,7 +105,7 @@ class TranslationManager:
         return this.cTranslation.getAnswer()
     
     def saveScores(this, filepath):
-        f = open(filepath, 'w')
+        f = open(filepath, 'w', encoding='utf-8')
         lines = []
         
         for i in range(score_max+1):
@@ -124,7 +124,7 @@ class App:
         this.TM = TranslationManager()
         this.filepath = filepath
         
-        f = open(filepath)
+        f = open(filepath, encoding='utf-8')
         for line in f:
             this.TM.add(line.strip())
         this.index = 0
