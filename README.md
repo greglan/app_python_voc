@@ -19,6 +19,7 @@ Todo
 - Format other answers
 - Problem when using e.txt
 - Add android support
-- Structure: add core app, and gui app
+- Add gui module
+- Add proba module
 - Add probas modules
 - Add score minus and plus variables

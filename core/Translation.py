@@ -44,7 +44,7 @@ class Translation:
         """ Returns the corresponding string to be written in a file """
         if this.swapped:
             this.swap()
-        return str(this.score)+'-'+this.question+'='+this.answer+'\n'
+        return str(this.score)+scoreSep+this.question+wordSep+this.answer+'\n'
     
     def check(this, answer):
         """ Check if the provided answer is correct

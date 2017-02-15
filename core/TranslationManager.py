@@ -12,7 +12,7 @@ class TranslationManager:
         this.scoreSep = scoreSep
         this.wordSep = wordSep
         this.totalTranslations = 0
-        this.cTranslation = None                                                # Current translation
+        this.cTranslation = None                                                # Active translation
         this.translations = [ [] for k in range(score_max+1) ]
     
     def gettotalTranslations(this):
