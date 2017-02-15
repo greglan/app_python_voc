@@ -7,6 +7,8 @@ import re
 score_max=4
 score_min=0
 
+scoreSep='='
+
 class Translation:
     def __init__(this, line):
         this.swapped = False                                                    # Direction of translation. Default: order in the file.
@@ -48,7 +50,6 @@ class Translation:
     
     def check(this, answer):
         """ Check if the provided answer is correct
-            TODO: display the missing answers
         """
         if answer in this.answers:
             if len(this.answers)!=1:
