@@ -9,12 +9,14 @@ Beware of dashes (-) in the words.
 Todo
 ----
 - Choose the traduction file location
-- Project management (different files)
 - Handle exit signal
 - Update scores in the manager
 - Add logging
 - Add tests
 - Add docs
 - Add two scores: one for each direction
-- Change the sep for score.
+- Translation build using sep provided by app settings.
 - Format other answers
+- Problem when using e.txt
+- Add android support
+- Structure: add core app, and gui app

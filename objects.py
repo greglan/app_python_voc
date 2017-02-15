@@ -12,19 +12,12 @@ wordSep='='
 
 class Translation:
     def __init__(this, line):
-        
         this.swapped = False                                                    # Direction of translation. Default: order in the file.
-        """
-        line = line.split('-')
-        this.score = int(line[0])                                               # Contains the score of the current translation
         
-        line = line[1].split('=')
-        this.question = line[0]                                                 # String
-        this.answer = line[1]                                                   # String
-        """
-        firstSepIndex = line.index(scoreSep)
-        this.score = int(line[:firstSepIndex])
-        line = line[firstSepIndex+1:].split('=')
+        firstSepIndex = line.index(scoreSep)                                    # Where is the score sep located?
+        this.score = int(line[:firstSepIndex])                                  # Get score
+        line = line[firstSepIndex+1:].split('=')                                # New line contains the translation without the scores
+        
         this.question = line[0]                                                 # String
         this.answer = line[1]                                                   # String
         this.buildAnswerList(this.answer)
