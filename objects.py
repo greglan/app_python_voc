@@ -16,7 +16,7 @@ class Translation:
         
         firstSepIndex = line.index(scoreSep)                                    # Where is the score sep located?
         this.score = int(line[:firstSepIndex])                                  # Get score
-        line = line[firstSepIndex+1:].split('=')                                # New line contains the translation without the scores
+        line = line[firstSepIndex+1:].split(wordSep)                            # New line contains the translation without the scores
         
         this.question = line[0]                                                 # String
         this.answer = line[1]                                                   # String

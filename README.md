@@ -4,7 +4,7 @@ No description
 Trad file format
 ----------------
 See samples.  
-Beware of dashes (-) in the words.  
+Beware of dashes (-) in the words depending on the sep.
 
 Todo
 ----
@@ -20,3 +20,4 @@ Todo
 - Problem when using e.txt
 - Add android support
 - Structure: add core app, and gui app
+- Add probas modules
