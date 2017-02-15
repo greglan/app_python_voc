@@ -21,3 +21,4 @@ Todo
 - Add android support
 - Structure: add core app, and gui app
 - Add probas modules
+- Add score minus and plus variables

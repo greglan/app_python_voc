@@ -2,7 +2,7 @@
 #!/usr/bin/env python
 
 
-from objects import *
+from core import App
         
-app = App('s.txt')
+app = App.App('s.txt')
 app.run()
