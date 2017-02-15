@@ -8,7 +8,9 @@ score_max=4
 score_min=0
 
 class TranslationManager:
-    def __init__(this):
+    def __init__(this, scoreSep, wordSep):
+        this.scoreSep = scoreSep
+        this.wordSep = wordSep
         this.totalTranslations = 0
         this.cTranslation = None                                                # Current translation
         this.translations = [ [] for k in range(score_max+1) ]
@@ -18,7 +20,7 @@ class TranslationManager:
     
     def add(this, line):
         """ Add the line to the list of translations. Sort it by its score. """
-        t = Translation.Translation(line)
+        t = Translation.Translation(line, this.scoreSep, this.wordSep)
         this.translations[t.score].append(t)
     
     def swapLanguages(this):

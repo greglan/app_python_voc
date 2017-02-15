@@ -5,11 +5,8 @@ import re
 score_max=4
 score_min=0
 
-scoreSep='='
-wordSep='='
-
 class Translation:
-    def __init__(this, line):
+    def __init__(this, line, scoreSep, wordSep):
         this.swapped = False                                                    # Direction of translation. Default: order in the file.
         
         firstSepIndex = line.index(scoreSep)                                    # Where is the score sep located?

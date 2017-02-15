@@ -3,8 +3,8 @@
 from core import TranslationManager
 
 class App:
-    def __init__(this, filepath):
-        this.TM = TranslationManager.TranslationManager()
+    def __init__(this, filepath, scoreSep='=', wordSep='='):
+        this.TM = TranslationManager.TranslationManager(scoreSep, wordSep)
         this.filepath = filepath
         
         f = open(filepath, encoding='utf-8')
