@@ -19,5 +19,7 @@ Todo
 - Format other answers
 - Add android support
 - Add score minus and plus variables
-- Add commandline argument to utils scripts.
+- Add commandline argument changeSep
+- Finish addscore (see TODO)
+- chagneSep -> changeScoreSep, add changeWordSep
 - Add proba module
