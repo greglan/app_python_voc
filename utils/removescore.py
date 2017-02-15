@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 f = open('s.txt','r+')
 l=[]
 for line in f:

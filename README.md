@@ -23,3 +23,4 @@ Todo
 - Add proba module
 - Add probas modules
 - Add score minus and plus variables
+- Add commandline argument to utils scripts.

@@ -1,7 +1,9 @@
+#!/usr/bin/env python
+
 prevSep='-'
 newSep='='
 
-f = open('s.txt','r+')
+f = open('e.txt','r+')
 lines=[]
 
 for line in f:

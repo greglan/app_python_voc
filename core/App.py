@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 
+import importlib
 from core import TranslationManager
 
 class App:
-    def __init__(this, filepath, scoreSep='=', wordSep='='):
+    def __init__(this, filepath, scoreSep='=', wordSep='=', gui='console'):
         this.TM = TranslationManager.TranslationManager(scoreSep, wordSep)
         this.filepath = filepath
+        
+        this.gui = importlib.import_module('gui.'+gui)
         
         f = open(filepath, encoding='utf-8')
         for line in f:
@@ -20,16 +23,15 @@ class App:
         while this.running:
             this.newQuestion()
             while(not this.processAnswer()):
-                print("Wrong")
+                this.gui.info("Wrong")
     
     
     def getAnswer(this):
         this.answer = input()    
     
     def newQuestion(this):
-        print()
         this.TM.newQuestion()
-        print(this.TM.getQuestion())
+        this.gui.question( this.TM.getQuestion() )
     
     
     def processAnswer(this):
@@ -45,10 +47,13 @@ class App:
             this.saveScores()
             return True
         else:
-            return this.TM.check(this.answer)
+            result =  this.TM.check(this.answer)
+            if result[1] != None:
+                this.gui.info(result[1])
+            return result[0]
     
     def printAnswer(this):
-        print(this.TM.getAnswer())
+        this.gui.answer( this.TM.getAnswer() )
     
     
     def saveScores(this):

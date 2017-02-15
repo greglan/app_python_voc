@@ -8,7 +8,8 @@ score_min=0
 class Translation:
     def __init__(this, line, scoreSep, wordSep):
         this.swapped = False                                                    # Direction of translation. Default: order in the file.
-        
+        this.scoreSep = scoreSep
+        this.wordSep = wordSep
         firstSepIndex = line.index(scoreSep)                                    # Where is the score sep located?
         this.score = int(line[:firstSepIndex])                                  # Get score
         line = line[firstSepIndex+1:].split(wordSep)                            # New line contains the translation without the scores
@@ -44,21 +45,20 @@ class Translation:
         """ Returns the corresponding string to be written in a file """
         if this.swapped:
             this.swap()
-        return str(this.score)+scoreSep+this.question+wordSep+this.answer+'\n'
+        return str(this.score)+this.scoreSep+this.question+this.wordSep+this.answer+'\n'
     
     def check(this, answer):
-        """ Check if the provided answer is correct
-        """
+        """ Check if the provided answer is correct """
         if answer in this.answers:
-            if len(this.answers)!=1:
-                print("Other answers: ")
-                this.answers.remove(answer)
-                print(this.answers)
             this.incScore()
-            return True
+            otherAnswers = None
+            if len(this.answers)!=1:
+                this.answers.remove(answer)
+                otherAnswers = "Other answers: "+str(this.answers)
+            return True, otherAnswers
         else:
             this.decScore()
-            return False
+            return False, None
     
     def incScore(this):
         if this.score < score_max:
