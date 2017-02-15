@@ -17,10 +17,7 @@ Todo
 - Add two scores: one for each direction
 - Translation build using sep provided by app settings.
 - Format other answers
-- Problem when using e.txt
 - Add android support
-- Add gui module
-- Add proba module
-- Add probas modules
 - Add score minus and plus variables
 - Add commandline argument to utils scripts.
+- Add proba module
