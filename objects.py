@@ -8,17 +8,27 @@ score_max=4
 score_min=0
 
 scoreSep='='
+wordSep='='
 
 class Translation:
     def __init__(this, line):
+        
         this.swapped = False                                                    # Direction of translation. Default: order in the file.
+        """
         line = line.split('-')
         this.score = int(line[0])                                               # Contains the score of the current translation
         
         line = line[1].split('=')
         this.question = line[0]                                                 # String
         this.answer = line[1]                                                   # String
+        """
+        firstSepIndex = line.index(scoreSep)
+        this.score = int(line[:firstSepIndex])
+        line = line[firstSepIndex+1:].split('=')
+        this.question = line[0]                                                 # String
+        this.answer = line[1]                                                   # String
         this.buildAnswerList(this.answer)
+        
     
     def buildAnswerList(this, s):
         """ List of the possible answers 
