@@ -9,8 +9,12 @@ scoreSep='='
 if nArgs > 1:
     f = open(sys.argv[1], 'r+')
     
-    if nArgs == 3: #TODO: Check if it is a valide scoreSep
-        scoreSep = sys.argv[2]
+    if nArgs == 3:
+        sep = sys.argv[2]
+        if len(sep)==1:
+            scoreSep = sep
+        else:
+            print("Sep if more than one character, ignoring...")
         
 else:
     f = open('e.txt','r+')

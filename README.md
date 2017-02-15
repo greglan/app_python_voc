@@ -1,5 +1,5 @@
 # app_python_voc
-No description
+Application to imrpove one's vocabulary based on formatted text files.
 
 Trad file format
 ----------------
@@ -8,18 +8,15 @@ Beware of dashes (-) in the words depending on the sep.
 
 Todo
 ----
-- Choose the traduction file location
+- Choose the traduction file location (cmd arg)
 - Handle exit signal
 - Update scores in the manager
 - Add logging
 - Add tests
 - Add docs
 - Add two scores: one for each direction
-- Translation build using sep provided by app settings.
 - Format other answers
 - Add android support
 - Add score minus and plus variables
-- Add commandline argument changeSep
-- Finish addscore (see TODO)
-- chagneSep -> changeScoreSep, add changeWordSep
+- Add changeWordSep
 - Add proba module
