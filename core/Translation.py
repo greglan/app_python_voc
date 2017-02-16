@@ -49,14 +49,12 @@ class Translation:
     def check(this, answer):
         """ Check if the provided answer is correct """
         if answer in this.answers:
-            this.incScore()
             otherAnswers = None
             if len(this.answers)!=1:
                 this.answers.remove(answer)
                 otherAnswers = "Other answers: "+str(this.answers)
             return True, otherAnswers
         else:
-            this.decScore()
             return False, None
     
     def incScore(this):

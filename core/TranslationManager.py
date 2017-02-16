@@ -41,7 +41,15 @@ class TranslationManager:
         return this.cTranslation.getQuestion()
     
     def check(this, answer):
-        return this.cTranslation.check(answer)
+        result = this.cTranslation.getAnswer()
+        score = this.cTranslation.score
+        if result[0]:
+            this.cTranslation.incScore()
+        else:
+            this.cTranslation.decScore()
+        this.translations[score].remove(this.cTranslation)
+        this.translations[this.cTranslation.score].append(this.cTranslation)
+        return result
     
     def getAnswer(this):
         return this.cTranslation.getAnswer()
