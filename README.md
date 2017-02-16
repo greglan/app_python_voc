@@ -10,7 +10,6 @@ Todo
 ----
 - Choose the traduction file location (cmd arg)
 - Handle exit signal
-- Update scores in the manager
 - Add logging
 - Add tests
 - Add docs
