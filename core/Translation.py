@@ -64,5 +64,5 @@ class Translation:
             this.score += 1
     
     def decScore(this):
-        if this.score >= this.score_min+2:
+        if this.score >= this.score_min+5:
             this.score -= 5
