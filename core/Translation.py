@@ -2,14 +2,13 @@
 
 import re
 
-score_max=4
-score_min=0
-
 class Translation:
-    def __init__(this, line, scoreSep, wordSep):
+    def __init__(this, line, scoreSep, wordSep, score_min, score_max):
         this.swapped = False                                                    # Direction of translation. Default: order in the file.
         this.scoreSep = scoreSep
         this.wordSep = wordSep
+        this.score_min=score_min
+        this.score_max=score_max
         firstSepIndex = line.index(scoreSep)                                    # Where is the score sep located?
         this.score = int(line[:firstSepIndex])                                  # Get score
         line = line[firstSepIndex+1:].split(wordSep)                            # New line contains the translation without the scores
@@ -61,9 +60,9 @@ class Translation:
             return False, None
     
     def incScore(this):
-        if this.score < score_max:
+        if this.score < this.score_max:
             this.score += 1
     
     def decScore(this):
-        if this.score >= score_min+2:
-            this.score -= 2
+        if this.score >= this.score_min+2:
+            this.score -= 5
