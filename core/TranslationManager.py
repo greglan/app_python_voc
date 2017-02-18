@@ -5,7 +5,7 @@ import random
 from core import Translation
 
 class TranslationManager:
-    def __init__(this, scoreSep, wordSep, score_min, score_max):
+    def __init__(this, scoreSep, wordSep, score_min, score_max, scoreMinus=5, scoreBonus=1):
         this.scoreSep = scoreSep
         this.wordSep = wordSep
         this.score_min=score_min

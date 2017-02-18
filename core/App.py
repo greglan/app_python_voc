@@ -4,8 +4,8 @@ import importlib
 from core import TranslationManager
 
 class App:
-    def __init__(this, filepath, scoreSep='=', wordSep='=', gui='console', score_min=0, score_max=20):
-        this.TM = TranslationManager.TranslationManager(scoreSep, wordSep, score_min, score_max)
+    def __init__(this, filepath, scoreSep='=', wordSep='=', gui='console', score_min=0, score_max=20, scoreMinus=5, scoreBonus=1):
+        this.TM = TranslationManager.TranslationManager(scoreSep, wordSep, score_min, score_max, scoreMinus, scoreBonus)
         this.filepath = filepath
         this.score_min=score_min
         this.score_max=score_max

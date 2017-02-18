@@ -1,5 +1,5 @@
 # app_python_voc
-Application to imrpove one's vocabulary based on formatted text files.
+Application to improve one's vocabulary based on formatted text files.
 
 Trad file format
 ----------------
@@ -16,6 +16,6 @@ Todo
 - Add two scores: one for each direction
 - Format other answers
 - Add android support
-- Add score minus and plus variables
 - Add changeWordSep
 - Add proba module
+- Re-think TM and Translation. Common variables for scores shouldn't be on each Translation.
