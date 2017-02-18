@@ -35,13 +35,13 @@ class TranslationManager:
             while score > this.score_max:                                       # Loop until a valid score is found.
                 score = math.floor(random.expovariate(0.25))
             k = len(this.translations[score])
-        this.cTranslation = this.translations[score][random.randint(0, k-1)]    
+        this.cTranslation = this.translations[score][random.randint(0, k-1)]
     
     def getQuestion(this):
         return this.cTranslation.getQuestion()
     
     def check(this, answer):
-        result = this.cTranslation.getAnswer()
+        result = this.cTranslation.check(answer)
         score = this.cTranslation.score
         if result[0]:
             this.cTranslation.incScore()

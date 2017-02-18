@@ -50,6 +50,7 @@ class App:
         else:
             result =  this.TM.check(this.answer)
             if result[1] != None:
+                print('result[1]')
                 this.gui.info(result[1])
             return result[0]
     
