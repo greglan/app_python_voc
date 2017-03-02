@@ -3,5 +3,5 @@
 
 from core import App
 
-app = App.App('e_expressions.txt')
+app = App.App('s.txt')
 app.run()
