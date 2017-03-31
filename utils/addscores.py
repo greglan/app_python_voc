@@ -1,9 +1,10 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 
 import sys
 
 nArgs = len(sys.argv)
-scoreSep='='
+scoreSep = '='
 
 
 if nArgs > 1:
@@ -11,15 +12,15 @@ if nArgs > 1:
     
     if nArgs == 3:
         sep = sys.argv[2]
-        if len(sep)==1:
+        if len(sep) == 1:
             scoreSep = sep
         else:
             print("Sep if more than one character, ignoring...")
         
 else:
-    f = open('e.txt','r+')
+    f = open('e.txt', 'r+')
 
-lines=[]
+lines = []
 
 for line in f:
     lines.append("0"+scoreSep+line)

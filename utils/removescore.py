@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 
 import sys
@@ -6,9 +7,9 @@ import sys
 if len(sys.argv) > 1:
     f = open(sys.argv[1], 'r+')
 else:
-    f = open('e.txt','r+')
+    f = open('e.txt', 'r+')
 
-lines=[]
+lines = []
 
 for line in f:
     lines.append(line[2:])

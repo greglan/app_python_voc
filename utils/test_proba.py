@@ -9,9 +9,9 @@ from math import *
 import random as rd
 import matplotlib.pyplot as plt
 
-score_max=20+1
-score_min=0
-N=10000                                                                         # Number of tests
+score_max = 20+1
+score_min = 0
+N = 10000  # Number of tests
 
 tests = []
 data = []
@@ -25,11 +25,11 @@ for k in range(N):
     tests.append(expo(0.25))
 
 for i in range(score_max):
-    data.append( tests.count(i)/N )
+    data.append(tests.count(i)/N)
     
 plt.plot(range(score_max), data)
 plt.xlim([score_min, score_max])
 
-print("Sum of probas: "+str( sum(data[k] for k in range(score_max-1)) ))
+print("Sum of probas: "+str(sum(data[k] for k in range(score_max-1))))
 
 plt.show()

@@ -1,10 +1,11 @@
+# -*- coding: utf-8 -*-
 #!/usr/bin/env python
 
-prevSep='-'
-newSep='='
+prevSep = '-'
+newSep = '='
 
-f = open('e.txt','r+')
-lines=[]
+f = open('e.txt', 'r+')
+lines = []
 
 for line in f:
     lines.append(line.replace(prevSep, newSep))
