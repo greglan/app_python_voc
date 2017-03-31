@@ -8,7 +8,6 @@ Beware of dashes (-) in the words depending on the sep.
 
 Todo
 ----
-- Choose the traduction file location (cmd arg in main)
 - Handle exit signal
 - Add logging
 - Add tests
