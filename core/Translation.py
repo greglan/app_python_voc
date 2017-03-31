@@ -2,25 +2,26 @@
 
 import re
 
+
 class Translation:
-    def __init__(this, line, scoreSep, wordSep, score_min, score_max, scoreMinus=5, scoreBonus=1):
-        this.swapped = False                                                    # Direction of translation. Default: order in the file.
-        this.scoreSep = scoreSep
-        this.wordSep = wordSep
-        this.score_min=score_min
-        this.score_max=score_max
-        this.scoreMinus=scoreMinus
-        this.scoreBonus=scoreBonus
-        firstSepIndex = line.index(scoreSep)                                    # Where is the score sep located?
-        this.score = int(line[:firstSepIndex])                                  # Get score
-        line = line[firstSepIndex+1:].split(wordSep)                            # New line contains the translation without the scores
-        
-        this.question = line[0]                                                 # String
-        this.answer = line[1]                                                   # String
-        this.buildAnswerList(this.answer)
-        
-    
-    def buildAnswerList(this, s):
+    def __init__(this, line, score_sep, word_sep, score_min, score_max, score_minus=5, score_bonus=1):
+        this.swapped = False   # Direction of translation. Default: order in the file.
+        this.score_sep = score_sep
+        this.word_sep = word_sep
+        this.score_min = score_min
+        this.score_max = score_max
+        this.score_minus = score_minus
+        this.score_bonus = score_bonus
+        first_sep_index = line.index(score_sep)          # Where is the score sep located?
+        this.score = int(line[:first_sep_index])        # Get score
+        line = line[first_sep_index+1:].split(word_sep)  # New line contains the translation without the scores
+
+        this.question = line[0]  # String
+        this.answer = line[1]    # String
+        this.answers = []
+        this.build_answer_list(this.answer)
+
+    def build_answer_list(this, s):
         """ List of the possible answers 
             Removes the parenthesis
         """
@@ -34,35 +35,35 @@ class Translation:
         """ Change the direction of the translation"""
         this.swapped = not this.swapped
         this.question, this.answer = this.answer, this.question
-        this.buildAnswerList(this.answer)
+        this.build_answer_list(this.answer)
     
-    def getQuestion(this):
+    def get_question(this):
         return this.question
     
-    def getAnswer(this):
+    def get_answer(this):
         return this.answer
     
-    def toString(this):
+    def to_string(this):
         """ Returns the corresponding string to be written in a file """
         if this.swapped:
             this.swap()
-        return str(this.score)+this.scoreSep+this.question+this.wordSep+this.answer+'\n'
+        return str(this.score)+this.score_sep + this.question + this.word_sep + this.answer + '\n'
     
     def check(this, answer):
         """ Check if the provided answer is correct """
         if answer in this.answers:
-            otherAnswers = None
-            if len(this.answers)!=1:
+            other_answers = None
+            if len(this.answers) != 1:
                 this.answers.remove(answer)
-                otherAnswers = "Other answers: "+str(this.answers)
-            return True, otherAnswers
+                other_answers = "Other answers: "+str(this.answers)
+            return True, other_answers
         else:
             return False, None
     
-    def incScore(this):
+    def inc_score(this):
         if this.score < this.score_max:
-            this.score += this.scoreBonus
+            this.score += this.score_bonus
     
-    def decScore(this):
+    def dec_score(this):
         if this.score >= this.score_min+5:
-            this.score -= this.scoreMinus
+            this.score -= this.score_minus
